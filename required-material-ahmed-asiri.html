@@ -1,225 +1,507 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> مواد مطلوبة للمقاول احمد عسيري لشهر ٨ و شهر ٩ </title>
+    <title>قائمة الأفعال الهولندية الشاملة</title>
     <style>
+        :root {
+            --primary-color: #007bb6;
+            --whatsapp-color: #25D366;
+            --bg-color: #f4f7f9;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            direction: rtl;
-            text-align: right;
-            margin: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
         }
 
-        #dateTime {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        table {
+        .container {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
             width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
+            max-width: 700px;
         }
 
-        table, th, td {
-            border: 1px solid #333;
-        }
-
-        th, td {
-            padding: 10px;
+        .header {
             text-align: center;
-        }
-
-        th {
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-
-        tr:nth-child(odd) {
-            background-color: #e9f7ef;
-        }
-
-        .button-container {
+            border-bottom: 2px solid var(--bg-color);
+            padding-bottom: 15px;
             margin-bottom: 20px;
         }
 
-        button {
-            padding: 10px 20px;
-            margin-right: 10px;
+        .header h2 {
+            margin: 0 0 10px 0;
+            color: var(--primary-color);
+        }
+
+        .clock-box {
+            font-size: 0.88em;
+            color: #555;
+            background: #eef6fa;
+            padding: 8px 12px;
+            border-radius: 6px;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            border: 1px solid #cbdbe6;
+            border-radius: 8px;
+            font-size: 0.95em;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        .search-box:focus {
+            border-color: var(--primary-color);
+        }
+
+        .data-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+            max-height: 500px;
+            overflow-y: auto;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+        }
+
+        .data-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            border-bottom: 1px solid #f0f0f0;
+            gap: 10px;
+        }
+
+        .data-item:last-child {
+            border-bottom: none;
+        }
+
+        .data-info {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            gap: 3px;
+        }
+
+        .row-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dutch-word {
+            font-weight: bold;
+            color: #111;
+            font-size: 1.05em;
+            direction: ltr;
+        }
+
+        .arabic-word {
+            color: #222;
+            font-size: 0.95em;
+            font-weight: 600;
+        }
+
+        .phonetic-word {
+            color: #777;
+            font-size: 0.85em;
+            direction: rtl;
+        }
+
+        .btn-small {
+            background-color: #f0f4f8;
+            color: var(--primary-color);
+            border: 1px solid #cbdbe6;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.8em;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .btn-small:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn-main {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: bold;
             border: none;
             cursor: pointer;
-            font-size: 16px;
-            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.2s, transform 0.1s;
         }
 
-        button:hover {
-            opacity: 0.8;
-        }
-
-        .print-btn {
-            background-color: #007bff;
+        .btn-copy-all {
+            background-color: var(--primary-color);
             color: white;
         }
 
-        .copy-btn {
-            background-color: #28a745;
-            color: white;
+        .btn-copy-all:hover {
+            background-color: #005f8d;
         }
 
-        .whatsapp-btn {
-            background-color: #25d366;
+        .btn-whatsapp {
+            background-color: var(--whatsapp-color);
             color: white;
+            text-decoration: none;
+            box-sizing: border-box;
         }
 
-        .email-btn {
-            background-color: #6c757d;
-            color: white;
+        .btn-whatsapp:hover {
+            background-color: #1eb956;
+        }
+
+        .btn-main:active {
+            transform: scale(0.98);
+        }
+
+        .toast {
+            visibility: hidden;
+            min-width: 220px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 10px;
+            position: fixed;
+            z-index: 10;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
+        .toast.show {
+            visibility: visible;
+            opacity: 1;
         }
     </style>
 </head>
 <body>
 
-    <h2>  مواد مطلوبة للمقاول احمد عسيري لشهر ٨ و شهر ٩  - خزانات محايل</h2>
-
-
-    <div id="dateTime"></div>
-
-    <div class="button-container">
-        <button class="print-btn" onclick="window.print()">Print</button>
-        <button class="copy-btn" onclick="copyContent()">Copy Content</button>
-        <button class="whatsapp-btn" onclick="sendWhatsApp()">Send via WhatsApp</button>
-        <button class="email-btn" onclick="sendEmail()">Send via Email</button>
-    </div>
-
-    <table>
-        <tr>
-            <th>#</th>
-            <th>الوصف</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>عدد ١٥٠ مربوع ثلاث متر</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>عدد ٢٠٠ قمطه. حديد</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>عدد ثلاث ربطه حديد ٨ مل</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>عدد ٢ لف شمبر لربط المائده</td>
-        </tr>
-       
-        <tr>
-            <td>5</td>
-            <td>عدد ٣٥ لوح بليوت</td>
-        </tr>
-    </table>
-
-
-
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Majardah Wadi List</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+<div class="container">
     <div class="header">
-        <h1>Mahaiel tank required material for Ahmed asiri - August and September</h1>
-        <div class="date-time" id="dateTime"></div>
+        <h2>قائمة الأفعال الهولندية الشاملة</h2>
+        <div class="clock-box" id="liveClock">جاري تحميل الوقت...</div>
     </div>
 
-    <table id="data-table">
-        <thead>
-            <tr>
-                <th>Index</th>
-                <th>Description</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>150 pieces of 3-meter squared blocks (MARINA)</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>200 iron clamps</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>3 bundles of 8 mm iron</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>2 rolls of wire for table binding</td>
-            </tr>
-          
-            <tr>
-                <td>5</td>
-                <td>35 pcs plywood boards</td>
-            </tr>
-        </tbody>
-    </table>
+    <input type="text" id="searchInput" class="search-box" placeholder="ابحث عن فعل، معنى، أو النطق..." onkeyup="filterVerbs()">
 
-    <div class="button-container">
-        <button class="action-button" onclick="printPage()">Print</button>
-        <button class="action-button" onclick="copyTableContent()">Copy Content</button>
-        <button class="action-button" onclick="sendWhatsApp()">Send by WhatsApp</button>
-        <button class="action-button" onclick="sendEmail()">Send by Email</button>
+    <ul class="data-list" id="verbList">
+        <!-- يتم التوليد عبر JavaScript -->
+    </ul>
+
+    <div class="actions">
+        <button class="btn-main btn-copy-all" onclick="copyAllData()">نسخ جميع الأفعال</button>
+        <a id="whatsappLink" href="#" target="_blank" class="btn-main btn-whatsapp">مشاركة عبر WhatsApp</a>
     </div>
+</div>
 
-    <script src="scripts.js"></script>
-</body>
-</html>
+<div id="toast" class="toast">تم النسخ بنجاح!</div>
 
-    <script>
-        // Display current date and time
-        function updateDateTime() {
-            const now = new Date();
-            const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-            document.getElementById('dateTime').textContent = now.toLocaleDateString('ar-EG', options);
-        }
-        setInterval(updateDateTime, 1000);
-        updateDateTime();
+<script>
+    // قائمة الأفعال الكاملة بدون تكرار
+    const verbs = [
+        { dutch: "Afspreken", arabic: "يتفق / يحدد موعدًا", phonetic: "أَفْسْبْرِيكَن" },
+        { dutch: "uitleggen", arabic: "يشرح", phonetic: "أَوْتْلِخَن" },
+        { dutch: "meebrengen", arabic: "يحضر معه", phonetic: "مَيْبْرِينخَن" },
+        { dutch: "afmaken", arabic: "ينهي", phonetic: "أَفْمَاكَن" },
+        { dutch: "uitnodigen", arabic: "يدعو", phonetic: "أَوْتْنُودِخَن" },
+        { dutch: "verhuizen", arabic: "ينتقبل للسكن", phonetic: "فِيرْهَاوْزَن" },
+        { dutch: "aantrekken", arabic: "يرتدي / يجذب", phonetic: "آنْتْرَكَن" },
+        { dutch: "uitdoen", arabic: "يخلع / يطفئ", phonetic: "أَوْتْدُون" },
+        { dutch: "aandoen", arabic: "يرتدي / يشغّل", phonetic: "آنْدُون" },
+        { dutch: "ophalen", arabic: "يستلم / يذهب ليحضر", phonetic: "أُوبْهَالَن" },
+        { dutch: "terugkomen", arabic: "يعود", phonetic: "تِرُوخْكُومَن" },
+        { dutch: "meenemen", arabic: "يأخذ معه", phonetic: "مَيْنِيمَن" },
+        { dutch: "terugbrengen", arabic: "يعيد / يرجع شيئًا", phonetic: "تِرُوخْبْرِينخَن" },
+        { dutch: "uitgaan", arabic: "يخرج", phonetic: "أَوْتْخَان" },
+        { dutch: "binnenkomen", arabic: "يدخل", phonetic: "بِنَن كُومَن" },
+        { dutch: "weggaan", arabic: "يغادر", phonetic: "فِخْخَان" },
+        { dutch: "opendoen", arabic: "يفتح", phonetic: "أُوبَنْدُون" },
+        { dutch: "dichtdoen", arabic: "يغلق", phonetic: "دِخْتْدُون" },
+        { dutch: "aanzetten", arabic: "يشغّل", phonetic: "آنْزِتَن" },
+        { dutch: "uitzetten", arabic: "يطفئ", phonetic: "أَوْتْزِتَن" },
+        { dutch: "opruimen", arabic: "يرتب / ينظف المكان", phonetic: "أُوبْرَاوْمَن" },
+        { dutch: "afwassen", arabic: "يغسل الصحون", phonetic: "أَفْوَسَن" },
+        { dutch: "aankleden", arabic: "يلبس / يرتدي", phonetic: "آنْكْلِيدَن" },
+        { dutch: "uitkleden", arabic: "يخلع ملابسه", phonetic: "أَوْتْكْلِيدَن" },
+        { dutch: "wakker worden", arabic: "يستيقظ", phonetic: "فَاكَر فُورْدَن" },
+        { dutch: "inslapen", arabic: "يغفو / ينام", phonetic: "أَنْسْلَابَن" },
+        { dutch: "uitrusten", arabic: "يستريح", phonetic: "أَوْتْرُوسْتَن" },
+        { dutch: "ontbijten", arabic: "يتناول الفطور", phonetic: "أُونْتْبَيْتَن" },
+        { dutch: "afzeggen", arabic: "يلغي موعدًا", phonetic: "أَفْزِخَن" },
+        { dutch: "afhalen", arabic: "يستلم", phonetic: "أَفْهَالَن" },
+        { dutch: "aanvragen", arabic: "يقدم طلبًا", phonetic: "آنْفْرَاخَن" },
+        { dutch: "invullen", arabic: "يملأ (استمارة)", phonetic: "أَنْفُلَن" },
+        { dutch: "ondertekenen", arabic: "يوقّع", phonetic: "أُونْدَرْتِيكَنَن" },
+        { dutch: "controleren", arabic: "يتحقق / يفحص", phonetic: "كُونْتْرُولِيرَن" },
+        { dutch: "regelen", arabic: "يرتب / ينظم", phonetic: "رِخِلَن" },
+        { dutch: "bespreken", arabic: "يناقش", phonetic: "بِسْبْرِيكَن" },
+        { dutch: "beslissen", arabic: "يقرر", phonetic: "بِسْلِسَن" },
+        { dutch: "proberen", arabic: "يحاول", phonetic: "بْرُوبِيرَن" },
+        { dutch: "veranderen", arabic: "يغير", phonetic: "فِيرَانْدَرَن" },
+        { dutch: "vergeten", arabic: "ينسى", phonetic: "فِيرْخِيتَن" },
+        { dutch: "herinneren", arabic: "يتذكر", phonetic: "هِرِينَرَن" },
+        { dutch: "vertellen", arabic: "يخبر / يحكي", phonetic: "فِيرْتِلَن" },
+        { dutch: "beschrijven", arabic: "يصف", phonetic: "بِسْخْرَايْفَن" },
+        { dutch: "bedoelen", arabic: "يقصد", phonetic: "بِدُولَن" },
+        { dutch: "betekenen", arabic: "يعني", phonetic: "بِيتِيكَنَن" },
+        { dutch: "uitspreken", arabic: "ينطق", phonetic: "أَوْتْسْبْرِيكَن" },
+        { dutch: "herhalen", arabic: "يكرر", phonetic: "هِرْهَالَن" },
+        { dutch: "oefenen", arabic: "يتتدرب", phonetic: "أُوفَنَن" },
+        { dutch: "studeren", arabic: "يدرس", phonetic: "سْتُودِيرَن" },
+        { dutch: "nakijken", arabic: "يراجع / يفحص", phonetic: "نَاكَايْكَن" },
+        { dutch: "verbeteren", arabic: "يصحح / يحسن", phonetic: "فِيرْبِيتَرَن" },
+        { dutch: "slagen", arabic: "ينجح", phonetic: "سْلَاخَن" },
+        { dutch: "zakken", arabic: "يرسب", phonetic: "زَكَن" },
+        { dutch: "verdienen", arabic: "يكسب مالًا", phonetic: "فِيرْدِينَن" },
+        { dutch: "solliciteren", arabic: "يتقدم لوظيفة", phonetic: "سُولِيسِيتِيرَن" },
+        { dutch: "werken aan", arabic: "يعمل على", phonetic: "وِيرْكَن آن" },
+        { dutch: "stoppen", arabic: "يتوقف", phonetic: "سْتُوبَن" },
+        { dutch: "doorgaan", arabic: "يستمر", phonetic: "دُورْخَان" },
+        { dutch: "beginnen met", arabic: "يبدأ بـ", phonetic: "بِخِنَن مِت" },
+        { dutch: "opgeven", arabic: "يستسلم / يعطي", phonetic: "أُوبْخِيفَن" },
+        { dutch: "volhouden", arabic: "يستمر / يثابر", phonetic: "فُولْهَاوْدَن" },
+        { dutch: "meedoen", arabic: "يشارك", phonetic: "مَيْدُون" },
+        { dutch: "meewerken", arabic: "يتعاون", phonetic: "مَيْوِيرْكَن" },
+        { dutch: "helpen met", arabic: "يساعد في", phonetic: "هِيلبَن مِت" },
+        { dutch: "zorgen voor", arabic: "يعتني بـ", phonetic: "" },
+        { dutch: "passen", arabic: "يناسب / يجرب ملابس", phonetic: "بَسَن" },
+        { dutch: "kiezen", arabic: "يختار", phonetic: "كِيزَن" },
+        { dutch: "besluiten", arabic: "يقرر", phonetic: "بِسْلَاوْتَن" },
+        { dutch: "vergelijken", arabic: "يقارن", phonetic: "فِيرْخِلَايْكَن" },
+        { dutch: "bestellen", arabic: "يطلب", phonetic: "بِسْتِلَن" },
+        { dutch: "ruilen", arabic: "يستبدل", phonetic: "رَاوْلَن" },
+        { dutch: "betalen voor", arabic: "يدفع مقابل", phonetic: "بِيتَالَن فُور" },
+        { dutch: "uitgeven", arabic: "ينفق", phonetic: "أَوْتْخِيفَن" },
+        { dutch: "sparen", arabic: "يدخر", phonetic: "سْبَارَن" },
+        { dutch: "lenen", arabic: "يستعير / يقترض", phonetic: "لِينَن" },
+        { dutch: "terugbetalen", arabic: "يسدد", phonetic: "تِرُوخْبِيتَالَن" },
+        { dutch: "kosten", arabic: "يكلف", phonetic: "كُوسْتَن" },
+        { dutch: "besparen", arabic: "يوفر / يوفر مالًا", phonetic: "بِسْبَارَن" },
+        { dutch: "verzenden", arabic: "يرسل", phonetic: "فِيرْزِنْدَن" },
+        { dutch: "ontvangen", arabic: "يستلم", phonetic: "أُونْتْفَانخَن" },
+        { dutch: "bezorgen", arabic: "يوصل", phonetic: "بِزُورْخَن" },
+        { dutch: "reserveren", arabic: "يحجز", phonetic: "غِيزِيرْفِيرَن" },
+        { dutch: "annuleren", arabic: "يلغي", phonetic: "أَنُولِيرَن" },
+        { dutch: "vertrekken", arabic: "يغادر", phonetic: "فِيرْتْرِكَن" },
+        { dutch: "aankomen", arabic: "يصل", phonetic: "آنْكُومَن" },
+        { dutch: "overstappen", arabic: "يغير وسيلة النقل", phonetic: "أُوفَرْسْتَابَن" },
+        { dutch: "instappen", arabic: "يصعد / يركب", phonetic: "أَنْسْتَابَن" },
+        { dutch: "uitstappen", arabic: "ينزل", phonetic: "أَوْتْسْتَابَن" },
+        { dutch: "verblijven", arabic: "يقيم", phonetic: "فِيرْبْلَايْفَن" },
+        { dutch: "overnachten", arabic: "يقضي الليل", phonetic: "أُوفَرْنَاخْتَن" },
+        { dutch: "bezoeken", arabic: "يزور", phonetic: "بِزُوكَن" },
+        { dutch: "rondlopen", arabic: "يتجول", phonetic: "رُونْدْلُوبَن" },
+        { dutch: "verdwalen", arabic: "يضل الطريق", phonetic: "فِيرْدْوَالَن" },
+        { dutch: "volgen", arabic: "يتبع", phonetic: "فُولْخَن" },
+        { dutch: "afwijken", arabic: "ينحرف / يخرج عن", phonetic: "أَفْوَايْكَن" },
+        { dutch: "bereiken", arabic: "يصل إلى", phonetic: "بِرَايْكَن" },
+        { dutch: "oversteken", arabic: "يعبر", phonetic: "أُوفَرْسْتِيكَن" },
+        { dutch: "teruggaan", arabic: "يعود", phonetic: "تِرُوخْخَان" },
+        { dutch: "omkeren", arabic: "يرجع / يستدير", phonetic: "أُمْكِيرَن" },
+        { dutch: "meegaan", arabic: "يذهب مع", phonetic: "مَيْخَان" },
+        { dutch: "meekomen", arabic: "يأتي مع", phonetic: "مَيْكُومَن" },
+        { dutch: "wegbrengen", arabic: "يوصل / يأخذ بعيدًا", phonetic: "فِخْبْرِينخَن" },
+        { dutch: "kennismaken", arabic: "يتعرف على شخص", phonetic: "كِينِسْمَاكَن" },
+        { dutch: "feliciteren", arabic: "يهنئ", phonetic: "فِيلِيسِيتِيرَن" },
+        { dutch: "bedanken", arabic: "يشكر", phonetic: "بِدَانْكَن" },
+        { dutch: "vergeven", arabic: "يسامح", phonetic: "فِيرْخِيفَن" },
+        { dutch: "vertrouwen", arabic: "يثق", phonetic: "فِيرْتْرَاوْوَن" },
+        { dutch: "geloven in", arabic: "يؤمن بـ", phonetic: "خِلُوفَن أَنْ" },
+        { dutch: "twijfelen", arabic: "يشك / يتردد", phonetic: "تْفَايْفَلَن" },
+        { dutch: "hopen", arabic: "يأمل", phonetic: "هُوبَن" },
+        { dutch: "verwachten", arabic: "يتوقع", phonetic: "فِيرْفَاخْتَن" },
+        { dutch: "missen", arabic: "يفتقد", phonetic: "مِسَن" },
+        { dutch: "houden van", arabic: "يحب", phonetic: "هَاوْدَن فَان" },
+        { dutch: "genieten", arabic: "يستمتع", phonetic: "خِنِيتَن" },
+        { dutch: "voelen", arabic: "يشعر", phonetic: "فُولَن" },
+        { dutch: "lachen", arabic: "يضحك", phonetic: "لَاخَن" },
+        { dutch: "huilen", arabic: "يبكي", phonetic: "هَاوْلَن" },
+        { dutch: "glimlachen", arabic: "يبتسم", phonetic: "خْلِمْلَاخَن" },
+        { dutch: "verklaren", arabic: "يشرح / يصرح", phonetic: "فِيرْكْلَارَن" },
+        { dutch: "vertalen", arabic: "يترجم", phonetic: "فِيرْتَالَن" },
+        { dutch: "opmerken", arabic: "يلاحظ", phonetic: "أُوبْمِيرْكَن" },
+        { dutch: "begrijpen", arabic: "يفهم", phonetic: "بِخْغَايْبَن" },
+        { dutch: "onthouden", arabic: "يتذكر / يحفظ", phonetic: "أُونْتْهَاوْدَن" },
+        { dutch: "herkennen", arabic: "يتعرف على", phonetic: "هِرْكِينَن" },
+        { dutch: "verwarren", arabic: "يخلط", phonetic: "فِيرْوَارَن" },
+        { dutch: "verwijzen", arabic: "يشير إلى", phonetic: "فِيرْوَايْزَن" },
+        { dutch: "vermelden", arabic: "يذكر", phonetic: "فِيرْمِلْدَن" },
+        { dutch: "melden", arabic: "يبلغ / يسجل", phonetic: "مِيلْدَن" },
+        { dutch: "waarschuwen", arabic: "يحذر", phonetic: "فَارْسْخَاوْوَن" },
+        { dutch: "adviseren", arabic: "ينصح", phonetic: "أَدْفِيزِيرَن" },
+        { dutch: "aanraden", arabic: "ينصح بـ", phonetic: "آنْرَادَن" },
+        { dutch: "afwegen", arabic: "يوازن / يدرس الخيارات", phonetic: "أَفْفِخَن" },
+        { dutch: "nadenken", arabic: "يفكر", phonetic: "نَادَنْكَن" },
+        { dutch: "heroverwegen", arabic: "يعيد التفكير", phonetic: "هِيرُوفَرْوِخَن" },
+        { dutch: "schoonmaken", arabic: "ينظف", phonetic: "سْخُونْمَاكَن" },
+        { dutch: "wassen", arabic: "يغسل", phonetic: "وَسَن" },
+        { dutch: "strijken", arabic: "يكوي", phonetic: "سْتْغَايْكَن" },
+        { dutch: "stofzuigen", arabic: "يكنس بالمكنسة الكهربائية", phonetic: "سْتُوفْزَاوْخَن" },
+        { dutch: "repareren", arabic: "يصلح", phonetic: "غِيبَارِيرَن" },
+        { dutch: "bouwen", arabic: "يبني", phonetic: "بَاوْوَن" },
+        { dutch: "inrichten", arabic: "يؤثث / يرتب", phonetic: "أَنْغِخْتَن" },
+        { dutch: "verwarmen", arabic: "يدفئ", phonetic: "فِيرْوَارْمَن" },
+        { dutch: "afkoelen", arabic: "يبرد", phonetic: "أَفْكُولَن" },
+        { dutch: "opladen", arabic: "يشحن", phonetic: "أُوبْلَادَن" },
+        { dutch: "downloaden", arabic: "ينزّل", phonetic: "دَاوْنْلُودَن" },
+        { dutch: "uploaden", arabic: "يرفع ملفًا", phonetic: "أَوْبْلُودَن" },
+        { dutch: "afdrukken", arabic: "يطبع", phonetic: "أَفْدْرُوكَن" },
+        { dutch: "opslaan", arabic: "يحفظ", phonetic: "أُوبْسْلَان" },
+        { dutch: "verwijderen", arabic: "يحذف / يزيل", phonetic: "فِيرْوَايْدَرَن" },
+        { dutch: "installeren", arabic: "يثبت / ينصب", phonetic: "أَنْسْتَالِيرَن" },
+        { dutch: "rusten", arabic: "يستريح", phonetic: "" },
+        { dutch: "zorgen", arabic: "يهتم", phonetic: "" },
+        { dutch: "serveren", arabic: "يقدم", phonetic: "" },
+        { dutch: "koken voor", arabic: "يطبخ لـ", phonetic: "" },
+        { dutch: "winnen van", arabic: "يفوز على", phonetic: "" },
+        { dutch: "zuigen", arabic: "يمتص", phonetic: "" },
+        { dutch: "zwaaien", arabic: "يلوح", phonetic: "" },
+        { dutch: "zweten", arabic: "يتعرق", phonetic: "" },
+        { dutch: "zwijgen", arabic: "يلتزم الصمت", phonetic: "" },
+        { dutch: "teruggeven", arabic: "يعيد (شيئًا)", phonetic: "" },
+        { dutch: "terugvinden", arabic: "يعثر عليه مجددًا", phonetic: "" },
+        { dutch: "vertrekken uit", arabic: "يغادر من", phonetic: "" }
+    ];
 
-        // Copy content to clipboard
-        function copyContent() {
-            const textToCopy = document.querySelector('table').innerText;
-            navigator.clipboard.writeText(textToCopy).then(() => {
-                alert('تم نسخ المحتوى بنجاح');
-            }).catch(() => {
-                alert('فشل النسخ');
-            });
-        }
+    // 1. عداد الوقت والتاريخ المباشر
+    function updateClock() {
+        const now = new Date();
+        const options = { 
+            weekday: 'long', 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric',
+            hour: '2-digit', 
+            minute: '2-digit', 
+            second: '2-digit' 
+        };
+        document.getElementById('liveClock').innerText = now.toLocaleDateString('ar-EG', options);
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
 
-        // Send content via WhatsApp
-        function sendWhatsApp() {
-            const textToSend = document.querySelector('table').innerText;
-            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(textToSend)}`;
-            window.open(whatsappUrl, '_blank');
-        }
+    // 2. عرض العناصر
+    function renderVerbs(data) {
+        const listElement = document.getElementById('verbList');
+        listElement.innerHTML = '';
+        
+        data.forEach(item => {
+            const li = document.createElement('li');
+            li.className = 'data-item';
+            
+            const phoneticHTML = item.phonetic ? `<span class="phonetic-word">— النطق: ${item.phonetic}</span>` : '';
+            
+            li.innerHTML = `
+                <div class="data-info">
+                    <div class="row-top">
+                        <span class="dutch-word">${item.dutch}</span>
+                        <span class="arabic-word">${item.arabic}</span>
+                    </div>
+                    ${phoneticHTML}
+                </div>
+                <button class="btn-small" onclick="copySingle('${item.dutch}', '${item.arabic}', '${item.phonetic}')">نسخ</button>
+            `;
+            listElement.appendChild(li);
+        });
+    }
 
-        // Send content via Email
-        function sendEmail() {
-            const subject = encodeURIComponent('قائمة المواد');
-            const body = encodeURIComponent(document.querySelector('table').innerText);
-            const mailtoUrl = `mailto:?subject=${subject}&body=${body}`;
-            window.open(mailtoUrl, '_self');
-        }
-    </script>
+    renderVerbs(verbs);
+
+    // 3. التصفية والبحث
+    function filterVerbs() {
+        const query = document.getElementById('searchInput').value.toLowerCase();
+        const filtered = verbs.filter(item => 
+            item.dutch.toLowerCase().includes(query) || 
+            item.arabic.includes(query) || 
+            item.phonetic.includes(query)
+        );
+        renderVerbs(filtered);
+    }
+
+    // 4. تجهيز النص الكامل للنسخ والمشاركة
+    function getFormattedText() {
+        let text = "*قائمة الأفعال الهولندية مترجمة:* \n\n";
+        verbs.forEach(item => {
+            if (item.phonetic) {
+                text += `• *${item.dutch}* — ${item.arabic} (${item.phonetic})\n`;
+            } else {
+                text += `• *${item.dutch}* — ${item.arabic}\n`;
+            }
+        });
+        return text;
+    }
+
+    // 5. نسخ فعل واحد
+    function copySingle(dutch, arabic, phonetic) {
+        let textToCopy = `${dutch} — ${arabic}`;
+        if (phonetic) textToCopy += ` (${phonetic})`;
+        
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            showToast(`تم نسخ: ${dutch}`);
+        });
+    }
+
+    // 6. نسخ كل البيانات
+    function copyAllData() {
+        navigator.clipboard.writeText(getFormattedText()).then(() => {
+            showToast('تم نسخ جميع الأفعال بنجاح!');
+        });
+    }
+
+    // 7. إعداد رابط الواتساب
+    function setupWhatsApp() {
+        const encodedText = encodeURIComponent(getFormattedText());
+        document.getElementById('whatsappLink').href = `https://api.whatsapp.com/send?text=${encodedText}`;
+    }
+    setupWhatsApp();
+
+    // إظهار التنبيه (Toast)
+    function showToast(message) {
+        const toast = document.getElementById("toast");
+        toast.innerText = message;
+        toast.className = "toast show";
+        setTimeout(() => { 
+            toast.className = toast.className.replace("show", ""); 
+        }, 2000);
+    }
+</script>
 
 </body>
 </html>
